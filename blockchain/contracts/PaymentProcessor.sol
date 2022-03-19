@@ -14,6 +14,8 @@ contract PaymentProcessor {
         caroken = IERC20(carokenAddress);
     }
 
+    event CarokenTransfer(address sender, address receiver, uint256 amount);
+
     function getCarokens() external payable {
         require(msg.value != 0, "Should send > 0 ethers");
         require(
@@ -32,5 +34,7 @@ contract PaymentProcessor {
 
         // Owner transfers coins from his account to the one requesting.
         caroken.transferFrom(owner, msg.sender, msg.value);
+
+        emit CarokenTransfer(owner, msg.sender, msg.value);
     }
 }

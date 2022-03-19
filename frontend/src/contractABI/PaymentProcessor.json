@@ -1,0 +1,5226 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "carokenAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "receiver",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "CarokenTransfer",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "caroken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getCarokens",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "1": "C:/Users/ASUS/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.5.0/contracts/token/ERC20/IERC20.sol",
+    "14": "contracts/PaymentProcessor.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/PaymentProcessor.sol",
+    "exportedSymbols": {
+      "Caroken": [
+        2108
+      ],
+      "Context": [
+        2233
+      ],
+      "ERC20": [
+        1172
+      ],
+      "IERC20": [
+        2186
+      ],
+      "IERC20Metadata": [
+        2211
+      ],
+      "PaymentProcessor": [
+        584
+      ]
+    },
+    "id": 585,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 491,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:14"
+      },
+      {
+        "absolutePath": "C:/Users/ASUS/.brownie/packages/OpenZeppelin/openzeppelin-contracts@4.5.0/contracts/token/ERC20/ERC20.sol",
+        "file": "OpenZeppelin/openzeppelin-contracts@4.5.0/contracts/token/ERC20/ERC20.sol",
+        "id": 492,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 585,
+        "sourceUnit": 1173,
+        "src": "25:83:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "contracts/Caroken.sol",
+        "file": "./Caroken.sol",
+        "id": 493,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 585,
+        "sourceUnit": 2109,
+        "src": "109:23:14",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "PaymentProcessor",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 584,
+        "linearizedBaseContracts": [
+          584
+        ],
+        "name": "PaymentProcessor",
+        "nameLocation": "194:16:14",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "c674f06d",
+            "id": 496,
+            "mutability": "mutable",
+            "name": "caroken",
+            "nameLocation": "231:7:14",
+            "nodeType": "VariableDeclaration",
+            "scope": 584,
+            "src": "217:21:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IERC20_$2186",
+              "typeString": "contract IERC20"
+            },
+            "typeName": {
+              "id": 495,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 494,
+                "name": "IERC20",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 2186,
+                "src": "217:6:14"
+              },
+              "referencedDeclaration": 2186,
+              "src": "217:6:14",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IERC20_$2186",
+                "typeString": "contract IERC20"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "8da5cb5b",
+            "id": 498,
+            "mutability": "mutable",
+            "name": "owner",
+            "nameLocation": "259:5:14",
+            "nodeType": "VariableDeclaration",
+            "scope": 584,
+            "src": "244:20:14",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 497,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "244:7:14",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 514,
+              "nodeType": "Block",
+              "src": "307:77:14",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 506,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 503,
+                      "name": "owner",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 498,
+                      "src": "317:5:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 504,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -15,
+                        "src": "325:3:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 505,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "325:10:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "317:18:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 507,
+                  "nodeType": "ExpressionStatement",
+                  "src": "317:18:14"
+                },
+                {
+                  "expression": {
+                    "id": 512,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 508,
+                      "name": "caroken",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 496,
+                      "src": "345:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$2186",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 510,
+                          "name": "carokenAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 500,
+                          "src": "362:14:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 509,
+                        "name": "IERC20",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2186,
+                        "src": "355:6:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IERC20_$2186_$",
+                          "typeString": "type(contract IERC20)"
+                        }
+                      },
+                      "id": 511,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "355:22:14",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IERC20_$2186",
+                        "typeString": "contract IERC20"
+                      }
+                    },
+                    "src": "345:32:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$2186",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "id": 513,
+                  "nodeType": "ExpressionStatement",
+                  "src": "345:32:14"
+                }
+              ]
+            },
+            "id": 515,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 501,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 500,
+                  "mutability": "mutable",
+                  "name": "carokenAddress",
+                  "nameLocation": "291:14:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 515,
+                  "src": "283:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 499,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "283:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "282:24:14"
+            },
+            "returnParameters": {
+              "id": 502,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "307:0:14"
+            },
+            "scope": 584,
+            "src": "271:113:14",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "anonymous": false,
+            "id": 523,
+            "name": "CarokenTransfer",
+            "nameLocation": "396:15:14",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 522,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 517,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nameLocation": "420:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 523,
+                  "src": "412:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 516,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "412:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 519,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "receiver",
+                  "nameLocation": "436:8:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 523,
+                  "src": "428:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 518,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "428:7:14",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 521,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "454:6:14",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 523,
+                  "src": "446:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 520,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "446:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "411:50:14"
+            },
+            "src": "390:72:14"
+          },
+          {
+            "body": {
+              "id": 582,
+              "nodeType": "Block",
+              "src": "508:654:14",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 530,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 527,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "526:3:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 528,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "value",
+                          "nodeType": "MemberAccess",
+                          "src": "526:9:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "hexValue": "30",
+                          "id": 529,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "539:1:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "526:14:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "53686f756c642073656e64203e203020657468657273",
+                        "id": 531,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "542:24:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_f9a0e1f7a618e58a82ab3d50d8894952ec4dedfedf32a5e2a8614b23be0f7873",
+                          "typeString": "literal_string \"Should send > 0 ethers\""
+                        },
+                        "value": "Should send > 0 ethers"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_f9a0e1f7a618e58a82ab3d50d8894952ec4dedfedf32a5e2a8614b23be0f7873",
+                          "typeString": "literal_string \"Should send > 0 ethers\""
+                        }
+                      ],
+                      "id": 526,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "518:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 532,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "518:49:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 533,
+                  "nodeType": "ExpressionStatement",
+                  "src": "518:49:14"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 540,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 535,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "598:3:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 536,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "value",
+                          "nodeType": "MemberAccess",
+                          "src": "598:9:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "<",
+                        "rightExpression": {
+                          "expression": {
+                            "expression": {
+                              "id": 537,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": -15,
+                              "src": "610:3:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 538,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "src": "610:10:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "id": 539,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "balance",
+                          "nodeType": "MemberAccess",
+                          "src": "610:18:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "598:30:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "53656e64657220646f65736e2774206861766520656e6f75676820657468657273",
+                        "id": 541,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "642:35:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_f6f8508641c439909a62fc5c4af505c19a825cfbc8edc076ed434997e9a43278",
+                          "typeString": "literal_string \"Sender doesn't have enough ethers\""
+                        },
+                        "value": "Sender doesn't have enough ethers"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_f6f8508641c439909a62fc5c4af505c19a825cfbc8edc076ed434997e9a43278",
+                          "typeString": "literal_string \"Sender doesn't have enough ethers\""
+                        }
+                      ],
+                      "id": 534,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "577:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 542,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "577:110:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 543,
+                  "nodeType": "ExpressionStatement",
+                  "src": "577:110:14"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 551,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "arguments": [
+                            {
+                              "id": 547,
+                              "name": "owner",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 498,
+                              "src": "777:5:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "expression": {
+                              "id": 545,
+                              "name": "caroken",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 496,
+                              "src": "759:7:14",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_IERC20_$2186",
+                                "typeString": "contract IERC20"
+                              }
+                            },
+                            "id": 546,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "balanceOf",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2125,
+                            "src": "759:17:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
+                              "typeString": "function (address) view external returns (uint256)"
+                            }
+                          },
+                          "id": 548,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "759:24:14",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": ">",
+                        "rightExpression": {
+                          "expression": {
+                            "id": 549,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "786:3:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 550,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "value",
+                          "nodeType": "MemberAccess",
+                          "src": "786:9:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "src": "759:36:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4f776e65722073686f756c64206861766520656e6f7567682065746865727320746f2067697665",
+                        "id": 552,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "809:41:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_c4398e975f4d1c93cddeaa229c1cd0b95f9d8a29074528268b542e65e4b59659",
+                          "typeString": "literal_string \"Owner should have enough ethers to give\""
+                        },
+                        "value": "Owner should have enough ethers to give"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_c4398e975f4d1c93cddeaa229c1cd0b95f9d8a29074528268b542e65e4b59659",
+                          "typeString": "literal_string \"Owner should have enough ethers to give\""
+                        }
+                      ],
+                      "id": 544,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "738:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 553,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "738:122:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 554,
+                  "nodeType": "ExpressionStatement",
+                  "src": "738:122:14"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "id": 560,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "950:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 561,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "src": "950:9:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "arguments": [
+                          {
+                            "id": 557,
+                            "name": "owner",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 498,
+                            "src": "934:5:14",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          ],
+                          "id": 556,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "926:8:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_payable_$",
+                            "typeString": "type(address payable)"
+                          },
+                          "typeName": {
+                            "id": 555,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "926:8:14",
+                            "stateMutability": "payable",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 558,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "926:14:14",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "id": 559,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "src": "926:23:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
+                      }
+                    },
+                    "id": 562,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "926:34:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 563,
+                  "nodeType": "ExpressionStatement",
+                  "src": "926:34:14"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 567,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 498,
+                        "src": "1065:5:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 568,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1072:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 569,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "1072:10:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 570,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1084:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 571,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "src": "1084:9:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "expression": {
+                        "id": 564,
+                        "name": "caroken",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 496,
+                        "src": "1044:7:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IERC20_$2186",
+                          "typeString": "contract IERC20"
+                        }
+                      },
+                      "id": 566,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transferFrom",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2167,
+                      "src": "1044:20:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$_t_bool_$",
+                        "typeString": "function (address,address,uint256) external returns (bool)"
+                      }
+                    },
+                    "id": 572,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1044:50:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 573,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1044:50:14"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 575,
+                        "name": "owner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 498,
+                        "src": "1126:5:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 576,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1133:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 577,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "src": "1133:10:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 578,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -15,
+                          "src": "1145:3:14",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 579,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "src": "1145:9:14",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 574,
+                      "name": "CarokenTransfer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 523,
+                      "src": "1110:15:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (address,address,uint256)"
+                      }
+                    },
+                    "id": 580,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1110:45:14",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 581,
+                  "nodeType": "EmitStatement",
+                  "src": "1105:50:14"
+                }
+              ]
+            },
+            "functionSelector": "f0c82499",
+            "id": 583,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCarokens",
+            "nameLocation": "477:11:14",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 524,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "488:2:14"
+            },
+            "returnParameters": {
+              "id": 525,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "508:0:14"
+            },
+            "scope": 584,
+            "src": "468:694:14",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 585,
+        "src": "185:979:14",
+        "usedErrors": []
+      }
+    ],
+    "src": "0:1165:14"
+  },
+  "bytecode": "608060405234801561001057600080fd5b5060405161043338038061043383398101604081905261002f91610062565b60018054336001600160a01b031991821617909155600080549091166001600160a01b0392909216919091179055610092565b60006020828403121561007457600080fd5b81516001600160a01b038116811461008b57600080fd5b9392505050565b610392806100a16000396000f3fe6080604052600436106100345760003560e01c80638da5cb5b14610039578063c674f06d14610075578063f0c8249914610095575b600080fd5b34801561004557600080fd5b50600154610059906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b34801561008157600080fd5b50600054610059906001600160a01b031681565b61009d61009f565b005b346100ea5760405162461bcd60e51b815260206004820152601660248201527553686f756c642073656e64203e20302065746865727360501b60448201526064015b60405180910390fd5b333134106101445760405162461bcd60e51b815260206004820152602160248201527f53656e64657220646f65736e2774206861766520656e6f7567682065746865726044820152607360f81b60648201526084016100e1565b6000546001546040516370a0823160e01b81526001600160a01b039182166004820152349291909116906370a0823190602401602060405180830381865afa158015610194573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101b8919061031a565b116102155760405162461bcd60e51b815260206004820152602760248201527f4f776e65722073686f756c64206861766520656e6f7567682065746865727320604482015266746f206769766560c81b60648201526084016100e1565b6001546040516001600160a01b03909116903480156108fc02916000818181858888f1935050505015801561024e573d6000803e3d6000fd5b506000546001546040516323b872dd60e01b81526001600160a01b0391821660048201523360248201523460448201529116906323b872dd906064016020604051808303816000875af11580156102a9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102cd9190610333565b50600154604080516001600160a01b0390921682523360208301523482820152517f1cbe589ffbdc6528ddcf30824e51e0634190834f5fc9c73342cb4f9912ae7c449181900360600190a1565b60006020828403121561032c57600080fd5b5051919050565b60006020828403121561034557600080fd5b8151801515811461035557600080fd5b939250505056fea2646970667358221220efacee07ffef945a107798ef8e442db4fb1678e5ac78932ff66de1be9c6e5d1d64736f6c634300080c0033",
+  "bytecodeSha1": "bc7c2937aafea8e58a6302ccdee7dd577702ae45",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.12+commit.f00d7308"
+  },
+  "contractName": "PaymentProcessor",
+  "coverageMap": {
+    "branches": {
+      "1": {},
+      "14": {
+        "PaymentProcessor.getCarokens": {
+          "6": [
+            598,
+            628,
+            true
+          ],
+          "7": [
+            759,
+            795,
+            true
+          ]
+        }
+      }
+    },
+    "statements": {
+      "1": {},
+      "14": {
+        "PaymentProcessor.getCarokens": {
+          "0": [
+            518,
+            567
+          ],
+          "1": [
+            577,
+            687
+          ],
+          "2": [
+            738,
+            860
+          ],
+          "3": [
+            926,
+            960
+          ],
+          "4": [
+            1044,
+            1094
+          ],
+          "5": [
+            1105,
+            1155
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [
+    "OpenZeppelin/openzeppelin-contracts@4.5.0/IERC20"
+  ],
+  "deployedBytecode": "6080604052600436106100345760003560e01c80638da5cb5b14610039578063c674f06d14610075578063f0c8249914610095575b600080fd5b34801561004557600080fd5b50600154610059906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b34801561008157600080fd5b50600054610059906001600160a01b031681565b61009d61009f565b005b346100ea5760405162461bcd60e51b815260206004820152601660248201527553686f756c642073656e64203e20302065746865727360501b60448201526064015b60405180910390fd5b333134106101445760405162461bcd60e51b815260206004820152602160248201527f53656e64657220646f65736e2774206861766520656e6f7567682065746865726044820152607360f81b60648201526084016100e1565b6000546001546040516370a0823160e01b81526001600160a01b039182166004820152349291909116906370a0823190602401602060405180830381865afa158015610194573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101b8919061031a565b116102155760405162461bcd60e51b815260206004820152602760248201527f4f776e65722073686f756c64206861766520656e6f7567682065746865727320604482015266746f206769766560c81b60648201526084016100e1565b6001546040516001600160a01b03909116903480156108fc02916000818181858888f1935050505015801561024e573d6000803e3d6000fd5b506000546001546040516323b872dd60e01b81526001600160a01b0391821660048201523360248201523460448201529116906323b872dd906064016020604051808303816000875af11580156102a9573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102cd9190610333565b50600154604080516001600160a01b0390921682523360208301523482820152517f1cbe589ffbdc6528ddcf30824e51e0634190834f5fc9c73342cb4f9912ae7c449181900360600190a1565b60006020828403121561032c57600080fd5b5051919050565b60006020828403121561034557600080fd5b8151801515811461035557600080fd5b939250505056fea2646970667358221220efacee07ffef945a107798ef8e442db4fb1678e5ac78932ff66de1be9c6e5d1d64736f6c634300080c0033",
+  "deployedSourceMap": "185:979:14:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;244:20;;;;;;;;;;-1:-1:-1;244:20:14;;;;-1:-1:-1;;;;;244:20:14;;;;;;-1:-1:-1;;;;;178:32:15;;;160:51;;148:2;133:18;244:20:14;;;;;;;217:21;;;;;;;;;;-1:-1:-1;217:21:14;;;;-1:-1:-1;;;;;217:21:14;;;468:694;;;:::i;:::-;;;526:9;518:49;;;;-1:-1:-1;;;518:49:14;;647:2:15;518:49:14;;;629:21:15;686:2;666:18;;;659:30;-1:-1:-1;;;705:18:15;;;698:52;767:18;;518:49:14;;;;;;;;;610:10;:18;598:9;:30;577:110;;;;-1:-1:-1;;;577:110:14;;998:2:15;577:110:14;;;980:21:15;1037:2;1017:18;;;1010:30;1076:34;1056:18;;;1049:62;-1:-1:-1;;;1127:18:15;;;1120:31;1168:19;;577:110:14;796:397:15;577:110:14;759:7;;;777:5;759:24;;-1:-1:-1;;;759:24:14;;-1:-1:-1;;;;;777:5:14;;;759:24;;;160:51:15;786:9:14;;759:7;;;;;:17;;133:18:15;;759:24:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;:36;738:122;;;;-1:-1:-1;;;738:122:14;;1589:2:15;738:122:14;;;1571:21:15;1628:2;1608:18;;;1601:30;1667:34;1647:18;;;1640:62;-1:-1:-1;;;1718:18:15;;;1711:37;1765:19;;738:122:14;1387:403:15;738:122:14;934:5;;926:34;;-1:-1:-1;;;;;934:5:14;;;;950:9;926:34;;;;;934:5;926:34;934:5;926:34;950:9;934:5;926:34;;;;;;;;;;;;;;;;;;;;-1:-1:-1;1044:7:14;;;1065:5;1044:50;;-1:-1:-1;;;1044:50:14;;-1:-1:-1;;;;;1065:5:14;;;1044:50;;;2035:34:15;1072:10:14;2085:18:15;;;2078:43;1084:9:14;2137:18:15;;;2130:34;1044:7:14;;;:20;;1970:18:15;;1044:50:14;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;1126:5:14;;1110:45;;;-1:-1:-1;;;;;1126:5:14;;;2035:34:15;;1133:10:14;2100:2:15;2085:18;;2078:43;1145:9:14;2137:18:15;;;2130:34;1110:45:14;;;;;;1985:2:15;1110:45:14;;;468:694::o;1198:184:15:-;1268:6;1321:2;1309:9;1300:7;1296:23;1292:32;1289:52;;;1337:1;1334;1327:12;1289:52;-1:-1:-1;1360:16:15;;1198:184;-1:-1:-1;1198:184:15:o;2175:277::-;2242:6;2295:2;2283:9;2274:7;2270:23;2266:32;2263:52;;;2311:1;2308;2301:12;2263:52;2343:9;2337:16;2396:5;2389:13;2382:21;2375:5;2372:32;2362:60;;2418:1;2415;2408:12;2362:60;2441:5;2175:277;-1:-1:-1;;;2175:277:15:o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    185,
+    1164
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x34 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x8DA5CB5B EQ PUSH2 0x39 JUMPI DUP1 PUSH4 0xC674F06D EQ PUSH2 0x75 JUMPI DUP1 PUSH4 0xF0C82499 EQ PUSH2 0x95 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE DUP1 ISZERO PUSH2 0x45 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x1 SLOAD PUSH2 0x59 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST CALLVALUE DUP1 ISZERO PUSH2 0x81 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x0 SLOAD PUSH2 0x59 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH2 0x9D PUSH2 0x9F JUMP JUMPDEST STOP JUMPDEST CALLVALUE PUSH2 0xEA JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x16 PUSH1 0x24 DUP3 ADD MSTORE PUSH22 0x53686F756C642073656E64203E203020657468657273 PUSH1 0x50 SHL PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST CALLER BALANCE CALLVALUE LT PUSH2 0x144 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x21 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x53656E64657220646F65736E2774206861766520656E6F756768206574686572 PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x73 PUSH1 0xF8 SHL PUSH1 0x64 DUP3 ADD MSTORE PUSH1 0x84 ADD PUSH2 0xE1 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 SLOAD PUSH1 0x40 MLOAD PUSH4 0x70A08231 PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP2 DUP3 AND PUSH1 0x4 DUP3 ADD MSTORE CALLVALUE SWAP3 SWAP2 SWAP1 SWAP2 AND SWAP1 PUSH4 0x70A08231 SWAP1 PUSH1 0x24 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 DUP7 GAS STATICCALL ISZERO DUP1 ISZERO PUSH2 0x194 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x1B8 SWAP2 SWAP1 PUSH2 0x31A JUMP JUMPDEST GT PUSH2 0x215 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x27 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x4F776E65722073686F756C64206861766520656E6F7567682065746865727320 PUSH1 0x44 DUP3 ADD MSTORE PUSH7 0x746F2067697665 PUSH1 0xC8 SHL PUSH1 0x64 DUP3 ADD MSTORE PUSH1 0x84 ADD PUSH2 0xE1 JUMP JUMPDEST PUSH1 0x1 SLOAD PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND SWAP1 CALLVALUE DUP1 ISZERO PUSH2 0x8FC MUL SWAP2 PUSH1 0x0 DUP2 DUP2 DUP2 DUP6 DUP9 DUP9 CALL SWAP4 POP POP POP POP ISZERO DUP1 ISZERO PUSH2 0x24E JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP PUSH1 0x0 SLOAD PUSH1 0x1 SLOAD PUSH1 0x40 MLOAD PUSH4 0x23B872DD PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP2 DUP3 AND PUSH1 0x4 DUP3 ADD MSTORE CALLER PUSH1 0x24 DUP3 ADD MSTORE CALLVALUE PUSH1 0x44 DUP3 ADD MSTORE SWAP2 AND SWAP1 PUSH4 0x23B872DD SWAP1 PUSH1 0x64 ADD PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 GAS CALL ISZERO DUP1 ISZERO PUSH2 0x2A9 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x1F NOT PUSH1 0x1F DUP3 ADD AND DUP3 ADD DUP1 PUSH1 0x40 MSTORE POP DUP2 ADD SWAP1 PUSH2 0x2CD SWAP2 SWAP1 PUSH2 0x333 JUMP JUMPDEST POP PUSH1 0x1 SLOAD PUSH1 0x40 DUP1 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP3 AND DUP3 MSTORE CALLER PUSH1 0x20 DUP4 ADD MSTORE CALLVALUE DUP3 DUP3 ADD MSTORE MLOAD PUSH32 0x1CBE589FFBDC6528DDCF30824E51E0634190834F5FC9C73342CB4F9912AE7C44 SWAP2 DUP2 SWAP1 SUB PUSH1 0x60 ADD SWAP1 LOG1 JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x32C JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP MLOAD SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x345 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 MLOAD DUP1 ISZERO ISZERO DUP2 EQ PUSH2 0x355 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xEF 0xAC 0xEE SMOD SELFDESTRUCT 0xEF SWAP5 GAS LT PUSH24 0x98EF8E442DB4FB1678E5AC78932FF66DE1BE9C6E5D1D6473 PUSH16 0x6C634300080C00330000000000000000 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "CALLDATASIZE",
+      "path": "14"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "LT",
+      "path": "14"
+    },
+    "9": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x34"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "13": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "15": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "CALLDATALOAD",
+      "path": "14"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0xE0"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "SHR",
+      "path": "14"
+    },
+    "19": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0x8DA5CB5B"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x39"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "30": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0xC674F06D"
+    },
+    "36": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "37": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x75"
+    },
+    "40": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "41": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0xF0C82499"
+    },
+    "47": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "EQ",
+      "path": "14"
+    },
+    "48": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x95"
+    },
+    "51": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "52": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "56": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        185,
+        1164
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "57": {
+      "offset": [
+        244,
+        264
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "58": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "59": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x45"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "67": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "68": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "69": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "70": {
+      "op": "POP"
+    },
+    "71": {
+      "offset": [
+        244,
+        264
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1"
+    },
+    "73": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "74": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x59"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "78": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "80": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "82": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "84": {
+      "op": "SHL"
+    },
+    "85": {
+      "op": "SUB"
+    },
+    "86": {
+      "offset": [
+        244,
+        264
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "87": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "88": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "89": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "90": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "92": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "93": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "95": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "97": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "99": {
+      "op": "SHL"
+    },
+    "100": {
+      "op": "SUB"
+    },
+    "101": {
+      "op": "SWAP1"
+    },
+    "102": {
+      "op": "SWAP2"
+    },
+    "103": {
+      "op": "AND"
+    },
+    "104": {
+      "op": "DUP2"
+    },
+    "105": {
+      "op": "MSTORE"
+    },
+    "106": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "108": {
+      "op": "ADD"
+    },
+    "109": {
+      "offset": [
+        244,
+        264
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "111": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "112": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "113": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "114": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "115": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "116": {
+      "fn": null,
+      "offset": [
+        244,
+        264
+      ],
+      "op": "RETURN",
+      "path": "14"
+    },
+    "117": {
+      "offset": [
+        217,
+        238
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "118": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "119": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "120": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "121": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x81"
+    },
+    "124": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "125": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "127": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "128": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "129": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "130": {
+      "op": "POP"
+    },
+    "131": {
+      "offset": [
+        217,
+        238
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "133": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "134": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x59"
+    },
+    "137": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "138": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "140": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "142": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "144": {
+      "op": "SHL"
+    },
+    "145": {
+      "op": "SUB"
+    },
+    "146": {
+      "offset": [
+        217,
+        238
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "147": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "148": {
+      "fn": null,
+      "offset": [
+        217,
+        238
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "149": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "150": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x9D"
+    },
+    "153": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x9F"
+    },
+    "156": {
+      "fn": "PaymentProcessor.getCarokens",
+      "jump": "i",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "157": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "158": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "STOP",
+      "path": "14"
+    },
+    "159": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "160": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        526,
+        535
+      ],
+      "op": "CALLVALUE",
+      "path": "14",
+      "statement": 0
+    },
+    "161": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xEA"
+    },
+    "164": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "165": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "167": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "168": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "172": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "174": {
+      "op": "SHL"
+    },
+    "175": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "176": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "177": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "179": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "181": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "182": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "183": {
+      "op": "MSTORE"
+    },
+    "184": {
+      "op": "PUSH1",
+      "value": "0x16"
+    },
+    "186": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "188": {
+      "op": "DUP3"
+    },
+    "189": {
+      "op": "ADD"
+    },
+    "190": {
+      "op": "MSTORE"
+    },
+    "191": {
+      "op": "PUSH22",
+      "value": "0x53686F756C642073656E64203E203020657468657273"
+    },
+    "214": {
+      "op": "PUSH1",
+      "value": "0x50"
+    },
+    "216": {
+      "op": "SHL"
+    },
+    "217": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "219": {
+      "op": "DUP3"
+    },
+    "220": {
+      "op": "ADD"
+    },
+    "221": {
+      "op": "MSTORE"
+    },
+    "222": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "224": {
+      "op": "ADD"
+    },
+    "225": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "226": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "228": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "229": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "230": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "231": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "232": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "233": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "REVERT",
+      "optimizer_revert": true,
+      "path": "14"
+    },
+    "234": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        518,
+        567
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "235": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        610,
+        620
+      ],
+      "op": "CALLER",
+      "path": "14",
+      "statement": 1
+    },
+    "236": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        610,
+        628
+      ],
+      "op": "BALANCE",
+      "path": "14"
+    },
+    "237": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        598,
+        607
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "238": {
+      "branch": 6,
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        598,
+        628
+      ],
+      "op": "LT",
+      "path": "14"
+    },
+    "239": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x144"
+    },
+    "242": {
+      "branch": 6,
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "243": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "245": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "246": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "250": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "252": {
+      "op": "SHL"
+    },
+    "253": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "254": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "255": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "257": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "259": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "260": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "261": {
+      "op": "MSTORE"
+    },
+    "262": {
+      "op": "PUSH1",
+      "value": "0x21"
+    },
+    "264": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "266": {
+      "op": "DUP3"
+    },
+    "267": {
+      "op": "ADD"
+    },
+    "268": {
+      "op": "MSTORE"
+    },
+    "269": {
+      "op": "PUSH32",
+      "value": "0x53656E64657220646F65736E2774206861766520656E6F756768206574686572"
+    },
+    "302": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "304": {
+      "op": "DUP3"
+    },
+    "305": {
+      "op": "ADD"
+    },
+    "306": {
+      "op": "MSTORE"
+    },
+    "307": {
+      "op": "PUSH1",
+      "value": "0x73"
+    },
+    "309": {
+      "op": "PUSH1",
+      "value": "0xF8"
+    },
+    "311": {
+      "op": "SHL"
+    },
+    "312": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "314": {
+      "op": "DUP3"
+    },
+    "315": {
+      "op": "ADD"
+    },
+    "316": {
+      "op": "MSTORE"
+    },
+    "317": {
+      "op": "PUSH1",
+      "value": "0x84"
+    },
+    "319": {
+      "op": "ADD"
+    },
+    "320": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xE1"
+    },
+    "323": {
+      "op": "JUMP"
+    },
+    "324": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        577,
+        687
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "325": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 2,
+      "value": "0x0"
+    },
+    "327": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "328": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1"
+    },
+    "330": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        777,
+        782
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "331": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "333": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "334": {
+      "op": "PUSH4",
+      "value": "0x70A08231"
+    },
+    "339": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "341": {
+      "op": "SHL"
+    },
+    "342": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "343": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "344": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "346": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "348": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "350": {
+      "op": "SHL"
+    },
+    "351": {
+      "op": "SUB"
+    },
+    "352": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        777,
+        782
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "353": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        777,
+        782
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "354": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        777,
+        782
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "355": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "357": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "358": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "359": {
+      "op": "MSTORE"
+    },
+    "360": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        786,
+        795
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "361": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        786,
+        795
+      ],
+      "op": "SWAP3",
+      "path": "14"
+    },
+    "362": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "363": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "364": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "365": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "366": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        766
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "367": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        776
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0x70A08231"
+    },
+    "372": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        776
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "373": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "375": {
+      "op": "ADD"
+    },
+    "376": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "378": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "380": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "381": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "382": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP4",
+      "path": "14"
+    },
+    "383": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "384": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "385": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP7",
+      "path": "14"
+    },
+    "386": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "GAS",
+      "path": "14"
+    },
+    "387": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "STATICCALL",
+      "path": "14"
+    },
+    "388": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "389": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "390": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "391": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x194"
+    },
+    "394": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "395": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "396": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "398": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "399": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "14"
+    },
+    "400": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "401": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "403": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "404": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "405": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "406": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "407": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "408": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "409": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "411": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "412": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "413": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1F"
+    },
+    "415": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "NOT",
+      "path": "14"
+    },
+    "416": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1F"
+    },
+    "418": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "419": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "420": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "421": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "422": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "423": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "424": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "426": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "427": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "428": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "429": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "430": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "431": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x1B8"
+    },
+    "434": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "435": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "436": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x31A"
+    },
+    "439": {
+      "fn": "PaymentProcessor.getCarokens",
+      "jump": "i",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "440": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        783
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "441": {
+      "branch": 7,
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        759,
+        795
+      ],
+      "op": "GT",
+      "path": "14"
+    },
+    "442": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x215"
+    },
+    "445": {
+      "branch": 7,
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "446": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "448": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "449": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "453": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "455": {
+      "op": "SHL"
+    },
+    "456": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "457": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "458": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "460": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "462": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "463": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "464": {
+      "op": "MSTORE"
+    },
+    "465": {
+      "op": "PUSH1",
+      "value": "0x27"
+    },
+    "467": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "469": {
+      "op": "DUP3"
+    },
+    "470": {
+      "op": "ADD"
+    },
+    "471": {
+      "op": "MSTORE"
+    },
+    "472": {
+      "op": "PUSH32",
+      "value": "0x4F776E65722073686F756C64206861766520656E6F7567682065746865727320"
+    },
+    "505": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "507": {
+      "op": "DUP3"
+    },
+    "508": {
+      "op": "ADD"
+    },
+    "509": {
+      "op": "MSTORE"
+    },
+    "510": {
+      "op": "PUSH7",
+      "value": "0x746F2067697665"
+    },
+    "518": {
+      "op": "PUSH1",
+      "value": "0xC8"
+    },
+    "520": {
+      "op": "SHL"
+    },
+    "521": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "523": {
+      "op": "DUP3"
+    },
+    "524": {
+      "op": "ADD"
+    },
+    "525": {
+      "op": "MSTORE"
+    },
+    "526": {
+      "op": "PUSH1",
+      "value": "0x84"
+    },
+    "528": {
+      "op": "ADD"
+    },
+    "529": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0xE1"
+    },
+    "532": {
+      "op": "JUMP"
+    },
+    "533": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        738,
+        860
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "534": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 3,
+      "value": "0x1"
+    },
+    "536": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "537": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "539": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "540": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "542": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "544": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "546": {
+      "op": "SHL"
+    },
+    "547": {
+      "op": "SUB"
+    },
+    "548": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "549": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "550": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "551": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "552": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        950,
+        959
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "553": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "554": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "555": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x8FC"
+    },
+    "558": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "MUL",
+      "path": "14"
+    },
+    "559": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "560": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "562": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "563": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "564": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "565": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        950,
+        959
+      ],
+      "op": "DUP6",
+      "path": "14"
+    },
+    "566": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        934,
+        939
+      ],
+      "op": "DUP9",
+      "path": "14"
+    },
+    "567": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "DUP9",
+      "path": "14"
+    },
+    "568": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "CALL",
+      "path": "14"
+    },
+    "569": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "SWAP4",
+      "path": "14"
+    },
+    "570": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "571": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "572": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "573": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "574": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "575": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "576": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "577": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x24E"
+    },
+    "580": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "581": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "582": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "584": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "585": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "14"
+    },
+    "586": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "587": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "589": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "590": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        926,
+        960
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "591": {
+      "op": "POP"
+    },
+    "592": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1051
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 4,
+      "value": "0x0"
+    },
+    "594": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1051
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "595": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1051
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1"
+    },
+    "597": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1065,
+        1070
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "598": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "600": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "601": {
+      "op": "PUSH4",
+      "value": "0x23B872DD"
+    },
+    "606": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "608": {
+      "op": "SHL"
+    },
+    "609": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "610": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "611": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "613": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "615": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "617": {
+      "op": "SHL"
+    },
+    "618": {
+      "op": "SUB"
+    },
+    "619": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1065,
+        1070
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "620": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1065,
+        1070
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "621": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1065,
+        1070
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "622": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x4"
+    },
+    "624": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "625": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "626": {
+      "op": "MSTORE"
+    },
+    "627": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1072,
+        1082
+      ],
+      "op": "CALLER",
+      "path": "14"
+    },
+    "628": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "630": {
+      "op": "DUP3"
+    },
+    "631": {
+      "op": "ADD"
+    },
+    "632": {
+      "op": "MSTORE"
+    },
+    "633": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1084,
+        1093
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "634": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "636": {
+      "op": "DUP3"
+    },
+    "637": {
+      "op": "ADD"
+    },
+    "638": {
+      "op": "MSTORE"
+    },
+    "639": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1051
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "640": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1051
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "641": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1051
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "642": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1064
+      ],
+      "op": "PUSH4",
+      "path": "14",
+      "value": "0x23B872DD"
+    },
+    "647": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1064
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "648": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "650": {
+      "op": "ADD"
+    },
+    "651": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x20"
+    },
+    "653": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "655": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "656": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "657": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP4",
+      "path": "14"
+    },
+    "658": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "659": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "660": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "662": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP8",
+      "path": "14"
+    },
+    "663": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "GAS",
+      "path": "14"
+    },
+    "664": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "CALL",
+      "path": "14"
+    },
+    "665": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "666": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "667": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "ISZERO",
+      "path": "14"
+    },
+    "668": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x2A9"
+    },
+    "671": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "JUMPI",
+      "path": "14"
+    },
+    "672": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "673": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "675": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "676": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "14"
+    },
+    "677": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "678": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x0"
+    },
+    "680": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "REVERT",
+      "path": "14"
+    },
+    "681": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "682": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "683": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "684": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "685": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "686": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "688": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "689": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "14"
+    },
+    "690": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1F"
+    },
+    "692": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "NOT",
+      "path": "14"
+    },
+    "693": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x1F"
+    },
+    "695": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "696": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "697": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "698": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP3",
+      "path": "14"
+    },
+    "699": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "700": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "701": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "703": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "MSTORE",
+      "path": "14"
+    },
+    "704": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "POP",
+      "path": "14"
+    },
+    "705": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "706": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "707": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "708": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x2CD"
+    },
+    "711": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "712": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "713": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "PUSH2",
+      "path": "14",
+      "value": "0x333"
+    },
+    "716": {
+      "fn": "PaymentProcessor.getCarokens",
+      "jump": "i",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "717": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1044,
+        1094
+      ],
+      "op": "JUMPDEST",
+      "path": "14"
+    },
+    "718": {
+      "op": "POP"
+    },
+    "719": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1126,
+        1131
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "statement": 5,
+      "value": "0x1"
+    },
+    "721": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1126,
+        1131
+      ],
+      "op": "SLOAD",
+      "path": "14"
+    },
+    "722": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "PUSH1",
+      "path": "14",
+      "value": "0x40"
+    },
+    "724": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "DUP1",
+      "path": "14"
+    },
+    "725": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "726": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "728": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "730": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "732": {
+      "op": "SHL"
+    },
+    "733": {
+      "op": "SUB"
+    },
+    "734": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1126,
+        1131
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "735": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1126,
+        1131
+      ],
+      "op": "SWAP3",
+      "path": "14"
+    },
+    "736": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1126,
+        1131
+      ],
+      "op": "AND",
+      "path": "14"
+    },
+    "737": {
+      "op": "DUP3"
+    },
+    "738": {
+      "op": "MSTORE"
+    },
+    "739": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1133,
+        1143
+      ],
+      "op": "CALLER",
+      "path": "14"
+    },
+    "740": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "742": {
+      "op": "DUP4"
+    },
+    "743": {
+      "op": "ADD"
+    },
+    "744": {
+      "op": "MSTORE"
+    },
+    "745": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1145,
+        1154
+      ],
+      "op": "CALLVALUE",
+      "path": "14"
+    },
+    "746": {
+      "op": "DUP3"
+    },
+    "747": {
+      "op": "DUP3"
+    },
+    "748": {
+      "op": "ADD"
+    },
+    "749": {
+      "op": "MSTORE"
+    },
+    "750": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "MLOAD",
+      "path": "14"
+    },
+    "751": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "PUSH32",
+      "path": "14",
+      "value": "0x1CBE589FFBDC6528DDCF30824E51E0634190834F5FC9C73342CB4F9912AE7C44"
+    },
+    "784": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "SWAP2",
+      "path": "14"
+    },
+    "785": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "DUP2",
+      "path": "14"
+    },
+    "786": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "787": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "SUB",
+      "path": "14"
+    },
+    "788": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "790": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "ADD",
+      "path": "14"
+    },
+    "791": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "SWAP1",
+      "path": "14"
+    },
+    "792": {
+      "fn": "PaymentProcessor.getCarokens",
+      "offset": [
+        1110,
+        1155
+      ],
+      "op": "LOG1",
+      "path": "14"
+    },
+    "793": {
+      "fn": "PaymentProcessor.getCarokens",
+      "jump": "o",
+      "offset": [
+        468,
+        1162
+      ],
+      "op": "JUMP",
+      "path": "14"
+    },
+    "794": {
+      "op": "JUMPDEST"
+    },
+    "795": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "797": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "799": {
+      "op": "DUP3"
+    },
+    "800": {
+      "op": "DUP5"
+    },
+    "801": {
+      "op": "SUB"
+    },
+    "802": {
+      "op": "SLT"
+    },
+    "803": {
+      "op": "ISZERO"
+    },
+    "804": {
+      "op": "PUSH2",
+      "value": "0x32C"
+    },
+    "807": {
+      "op": "JUMPI"
+    },
+    "808": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "810": {
+      "op": "DUP1"
+    },
+    "811": {
+      "op": "REVERT"
+    },
+    "812": {
+      "op": "JUMPDEST"
+    },
+    "813": {
+      "op": "POP"
+    },
+    "814": {
+      "op": "MLOAD"
+    },
+    "815": {
+      "op": "SWAP2"
+    },
+    "816": {
+      "op": "SWAP1"
+    },
+    "817": {
+      "op": "POP"
+    },
+    "818": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "819": {
+      "op": "JUMPDEST"
+    },
+    "820": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "822": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "824": {
+      "op": "DUP3"
+    },
+    "825": {
+      "op": "DUP5"
+    },
+    "826": {
+      "op": "SUB"
+    },
+    "827": {
+      "op": "SLT"
+    },
+    "828": {
+      "op": "ISZERO"
+    },
+    "829": {
+      "op": "PUSH2",
+      "value": "0x345"
+    },
+    "832": {
+      "op": "JUMPI"
+    },
+    "833": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "835": {
+      "op": "DUP1"
+    },
+    "836": {
+      "op": "REVERT"
+    },
+    "837": {
+      "op": "JUMPDEST"
+    },
+    "838": {
+      "op": "DUP2"
+    },
+    "839": {
+      "op": "MLOAD"
+    },
+    "840": {
+      "op": "DUP1"
+    },
+    "841": {
+      "op": "ISZERO"
+    },
+    "842": {
+      "op": "ISZERO"
+    },
+    "843": {
+      "op": "DUP2"
+    },
+    "844": {
+      "op": "EQ"
+    },
+    "845": {
+      "op": "PUSH2",
+      "value": "0x355"
+    },
+    "848": {
+      "op": "JUMPI"
+    },
+    "849": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "851": {
+      "op": "DUP1"
+    },
+    "852": {
+      "op": "REVERT"
+    },
+    "853": {
+      "op": "JUMPDEST"
+    },
+    "854": {
+      "op": "SWAP4"
+    },
+    "855": {
+      "op": "SWAP3"
+    },
+    "856": {
+      "op": "POP"
+    },
+    "857": {
+      "op": "POP"
+    },
+    "858": {
+      "op": "POP"
+    },
+    "859": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "b6c927e1614264b581a420ca4ebcfcbe5925b43a",
+  "source": "pragma solidity ^0.8.0;\n\nimport \"OpenZeppelin/openzeppelin-contracts@4.5.0/contracts/token/ERC20/ERC20.sol\";\nimport \"./Caroken.sol\";\n\n// As of now I want carokens to be non refundible\n\ncontract PaymentProcessor {\n    IERC20 public caroken;\n    address public owner;\n\n    constructor(address carokenAddress) {\n        owner = msg.sender;\n        caroken = IERC20(carokenAddress);\n    }\n\n    event CarokenTransfer(address sender, address receiver, uint256 amount);\n\n    function getCarokens() external payable {\n        require(msg.value != 0, \"Should send > 0 ethers\");\n        require(\n            msg.value < msg.sender.balance,\n            \"Sender doesn't have enough ethers\"\n        );\n\n        // 1 wei == 1 caroken as of now\n        require(\n            caroken.balanceOf(owner) > msg.value,\n            \"Owner should have enough ethers to give\"\n        );\n\n        // Transferred ethers from sender to the owner\n        payable(owner).transfer(msg.value);\n\n        // Owner transfers coins from his account to the one requesting.\n        caroken.transferFrom(owner, msg.sender, msg.value);\n\n        emit CarokenTransfer(owner, msg.sender, msg.value);\n    }\n}\n",
+  "sourceMap": "185:979:14:-:0;;;271:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;317:5;:18;;325:10;-1:-1:-1;;;;;;317:18:14;;;;;;;-1:-1:-1;345:32:14;;;;;-1:-1:-1;;;;;345:32:14;;;;;;;;;;185:979;;14:290:15;84:6;137:2;125:9;116:7;112:23;108:32;105:52;;;153:1;150;143:12;105:52;179:16;;-1:-1:-1;;;;;224:31:15;;214:42;;204:70;;270:1;267;260:12;204:70;293:5;14:290;-1:-1:-1;;;14:290:15:o;:::-;185:979:14;;;;;;",
+  "sourcePath": "contracts/PaymentProcessor.sol",
+  "type": "contract"
+}

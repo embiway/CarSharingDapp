@@ -21,6 +21,13 @@ contract CarShare is ERC721 {
         bool isShared;
     }
 
+    // This event will return the id of newly added car
+    event CarAdded(address owner, uint256 _id);
+
+    event CarReturned(address owner, address rentee, uint256 _carid);
+
+    event CarShared(address owner, address rentee, uint256 _carid);
+
     mapping(string => uint256) public CarIdMapper;
     mapping(string => bool) public CarNoUsed;
 
@@ -29,6 +36,30 @@ contract CarShare is ERC721 {
     constructor(address carokenAddress) ERC721("CarShare", "CRS") {
         manager = msg.sender;
         caroken = IERC20(carokenAddress);
+    }
+
+    function getCarDetailsById(uint256 _id)
+        public
+        view
+        returns (
+            string memory carNo,
+            address owner,
+            string memory name,
+            string memory yearOfManufacture,
+            uint256 mileage,
+            bool isShared,
+            address currentRentee
+        )
+    {
+        return (
+            cars[_id].CarNo,
+            cars[_id].owner,
+            cars[_id].name,
+            cars[_id].yearOfManufacture,
+            cars[_id].mileage,
+            cars[_id].isShared,
+            cars[_id].currentRentee
+        );
     }
 
     function getOwner(uint256 _carid) public view returns (address) {
@@ -72,6 +103,8 @@ contract CarShare is ERC721 {
         cars[id].shareStart = block.timestamp;
         cars[id].currentRentee = msg.sender;
         cars[id].isShared = true;
+
+        emit CarShared(ownerAddress, msg.sender, id);
         return true;
     }
 
@@ -104,6 +137,8 @@ contract CarShare is ERC721 {
         CarNoUsed[CarNo] = true;
 
         _safeMint(msg.sender, currCarId);
+
+        emit CarAdded(msg.sender, currCarId);
     }
 
     function returnCar(uint256 _id) public {
@@ -131,5 +166,7 @@ contract CarShare is ERC721 {
         _safeTransfer(ownerOf(_id), cars[_id].owner, _id, "Enjoy!");
         cars[_id].currentRentee = cars[_id].owner;
         cars[_id].isShared = false;
+
+        emit CarReturned(cars[_id].owner, msg.sender, _id);
     }
 }
