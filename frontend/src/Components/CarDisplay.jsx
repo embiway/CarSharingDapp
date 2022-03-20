@@ -11,9 +11,11 @@ import PaymentProcessor from '../contractABI/PaymentProcessor.json'
 // Array of Cars from components
 export default function CarDisplay() {
 
-    const carokenAddress = '0x358dd6C36e6d2A2fCb26FE97120484f18938706F';
-    const carshareAddress = '0x24C5b19EeE17fb5C3ce3Db3caD299a3199c32952';
-    const paymentProcessorAddress = '0x27D7a1CB0A1F2e31Af117ee95a8e30c9348e4E0B';
+    const carokenAddress = '0x2f66405a930ae12D6D04CcA7585594F5594F0608';
+    const carshareAddress = '0x20bb099fc32Ce5C30806107D4878791Ae28EF0d4';
+    const paymentProcessorAddress = '0x46AaFC9d4AD5ed0cF8e293900DaA4551E875031A';
+
+    let [userAddress , setUserAddress] = useState(null);
 
     let [loading , setLoading] = useState(true);
     let [account , setAccount] = useState(null)
@@ -30,7 +32,7 @@ export default function CarDisplay() {
             name: "",
             owner: "0",
             currentRentee: "0",
-            yearOfManufacture: "",
+            basePriceToRent: 0,
             mileage: 0,
             isShared: false
         }
@@ -67,6 +69,8 @@ export default function CarDisplay() {
         setCarshare(tmpCarShare);
         setpaymentProcessor(tmpaymentProcessor);
 
+        let currAddress = await currSigner.getAddress();
+        setUserAddress(currAddress);
 
         const currCars = [];
         console.log(cars);
@@ -80,7 +84,7 @@ export default function CarDisplay() {
                 name: newCar[2],
                 owner: newCar[1],
                 currentRentee: newCar[6],
-                yearOfManufacture: newCar[3],
+                basePriceToRent: newCar[3] - 0,
                 mileage: newCar[4] - 0,
                 isShared: newCar[5]
             }
@@ -92,40 +96,106 @@ export default function CarDisplay() {
         setLoading(false);
     }
 
-    const returnCar = () => {
+    const returnCar = async (carNo) => {
+        setLoading(true);
+        await carshare.returnCar(carNo);
         
+        const currCars = [];
+        console.log(cars);
+        const totalCars = await carshare.getTotalCars();
+
+        for (let carIdx = 0 ; carIdx < totalCars ; carIdx++) {
+            const newCar = await carshare.getCarDetailsById(carIdx);
+
+            const newCarDict = {
+                carNo: newCar[0],
+                name: newCar[2],
+                owner: newCar[1],
+                currentRentee: newCar[6],
+                basePriceToRent: newCar[3] - 0,
+                mileage: newCar[4] - 0,
+                isShared: newCar[5]
+            }
+            currCars.push(newCarDict);
+        }
+
+        setCars(currCars);
+        console.log(typeof(cars) , cars);
+        setLoading(false);
     }
 
-    const shareCar = () => {
+    const approveTokens = async (carNo) => {
+        setLoading(true);
+        const res = await caroken.approveCarokens(cars[carNo].owner , 2 * cars[carNo].basePriceToRent);
+        console.log(res , "Approval Done");
+        setLoading(false);
+    }
 
+    const shareCar = async (carNo) => {
+        setLoading(true);
+        // const res = await caroken.allowance(userAddress , cars[carNo].owner);
+        // console.log(res - 0);
+        // const res1 = await caroken.balanceOf(userAddress);
+        // console.log(res1 - 0);
+        await carshare.shareCar(carNo);
+        
+        console.log("DONE SHARE");
+        const currCars = [];
+        console.log(cars);
+        const totalCars = await carshare.getTotalCars();
+
+        for (let carIdx = 0 ; carIdx < totalCars ; carIdx++) {
+            const newCar = await carshare.getCarDetailsById(carIdx);
+
+            const newCarDict = {
+                carNo: newCar[0],
+                name: newCar[2],
+                owner: newCar[1],
+                currentRentee: newCar[6],
+                basePriceToRent: newCar[3] - 0,
+                mileage: newCar[4] - 0,
+                isShared: newCar[5]
+            }
+            currCars.push(newCarDict);
+        }
+
+        setCars(currCars);
+        console.log(typeof(cars) , cars);
+        setLoading(false);
     }
 
     const getCars = () => {
-        console.log(typeof(cars));
-        let currAddress = 0;
-        signer.getAddress()
-        .then(addr => {
-            currAddress = addr;
-        })
-        .catch(err => console.log(err));
-        console.log(currAddress);
-        return cars.map((car) => (
+        console.log(typeof(cars))
+        return cars.map((car , idx) => (
             <div key={car.carNo}>
+                {console.log(car.owner , userAddress)};
                 <p>carNo : {car.carNo}</p>
                 <p>name : {car.name}</p>
                 <p>owner : {car.owner}</p>
-                <p>year of Manufacture : {car.yearOfManufacture}</p>
+                <p>Base Price To Rent : {car.basePriceToRent}</p>
                 <p>mileage : {car.mileage}</p>
                 <p>isShared : {car.isShared}</p>
-                {car.isShared ? (car.owner === currAddress ? <button disabled>You are the owner</button> : (car.currentRentee === currAddress ? <button onClick={returnCar}>Return Car</button> : <button disabled>Car already rented</button>)) : <button onClick={shareCar}>Rent</button>}
+                {car.isShared ? (car.owner === userAddress ? <button disabled>You are the owner</button> : (car.currentRentee === userAddress ? <button onClick={() => returnCar(idx)}>Return Car</button> : <button disabled>Car already rented</button>)) : (car.owner === userAddress ? <button disabled>You are the owner</button> : <button onClick={() => shareCar(idx)}>Rent</button>)}
+                <button onClick={() => approveTokens(idx)}>approve Tokens</button>
             </div>
-        ));
+        ))
+    }
+
+    const getDetails = async (carNo) => {
+        let allowance = await caroken.balanceOf(userAddress);
+        allowance = allowance - 0;
+        console.log(allowance , "1");
+        
+        allowance = await caroken.allowance(userAddress , cars[0].owner)
+        allowance = allowance - 0;
+        console.log(allowance, "2");
     }
 
     useEffect(() => console.log("Re rendered"));
     return (
         errorPresent ? <h4>Error occured</h4> : 
         <div>
+            <button onClick={getDetails}>Get Details</button>
             <p>Account: {account}</p>
             <button onClick={connectWalletHandler}>Connect Metamask</button>
             {loading ? <p>Loading</p> :

@@ -18,7 +18,7 @@ export default function CarAdd(props) {
             name: newCar[2],
             owner: newCar[1],
             currentRentee: newCar[6],
-            yearOfManufacture: newCar[3],
+            basePriceToRent: newCar[3] - 0,
             mileage: newCar[4] - 0,
             isShared: newCar[5]
         }

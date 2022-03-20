@@ -45,7 +45,7 @@ contract CarShare is ERC721 {
             string memory carNo,
             address owner,
             string memory name,
-            string memory yearOfManufacture,
+            uint256 basePriceToRent,
             uint256 mileage,
             bool isShared,
             address currentRentee
@@ -55,7 +55,7 @@ contract CarShare is ERC721 {
             cars[_id].CarNo,
             cars[_id].owner,
             cars[_id].name,
-            cars[_id].yearOfManufacture,
+            cars[_id].basePriceToRent,
             cars[_id].mileage,
             cars[_id].isShared,
             cars[_id].currentRentee
@@ -92,6 +92,7 @@ contract CarShare is ERC721 {
             caroken.balanceOf(msg.sender) > cars[id].basePriceToRent,
             "Not enough balance to purchase"
         );
+
         caroken.transferFrom(
             msg.sender,
             ownerAddress,
@@ -161,6 +162,7 @@ contract CarShare is ERC721 {
             "Rentee doesn't have enough coins to pay"
         );
 
+        caroken.approve(cars[_id].owner, timeForRent / 10**18);
         caroken.transferFrom(msg.sender, cars[_id].owner, timeForRent / 10**18);
 
         _safeTransfer(ownerOf(_id), cars[_id].owner, _id, "Enjoy!");

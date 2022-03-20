@@ -23,4 +23,14 @@ contract Caroken is ERC20 {
          */
         _burn(msg.sender, amount);
     }
+
+    function approveCarokens(address spender, uint256 amount)
+        public
+        virtual
+        returns (bool)
+    {
+        address owner = _msgSender();
+        _approve(owner, spender, amount * 10**18);
+        return true;
+    }
 }
