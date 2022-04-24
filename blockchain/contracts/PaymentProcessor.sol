@@ -33,7 +33,7 @@ contract PaymentProcessor {
         payable(owner).transfer(msg.value);
 
         // Owner transfers coins from his account to the one requesting.
-        caroken.transferFrom(owner, msg.sender, msg.value);
+        caroken.transfer(msg.sender, msg.value);
 
         emit CarokenTransfer(owner, msg.sender, msg.value);
     }

@@ -1,6 +1,6 @@
-import React, { Component, useEffect, useState } from 'react';
-import Car from './Car'
+import React, { Component, useEffect, useState } from 'react';  
 import CarAdd from './CarAdd'
+import { Card , Button } from 'react-bootstrap'
 import TokenTransaction from './TokenTransactions';
 import { ethers } from 'ethers'
 import Caroken from '../contractABI/Caroken.json'
@@ -11,9 +11,9 @@ import PaymentProcessor from '../contractABI/PaymentProcessor.json'
 // Array of Cars from components
 export default function CarDisplay() {
 
-    const carokenAddress = '0x2f66405a930ae12D6D04CcA7585594F5594F0608';
-    const carshareAddress = '0x20bb099fc32Ce5C30806107D4878791Ae28EF0d4';
-    const paymentProcessorAddress = '0x46AaFC9d4AD5ed0cF8e293900DaA4551E875031A';
+    const carokenAddress = process.env.REACT_APP_CAROKEN_ADDRESS;
+    const carshareAddress = process.env.REACT_APP_CARSHARE_ADDRESS;
+    const paymentProcessorAddress = process.env.REACT_APP_PAYMENTPROCESSOR_ADDRESS;
 
     let [userAddress , setUserAddress] = useState(null);
 
@@ -24,6 +24,7 @@ export default function CarDisplay() {
     let [caroken , setCaroken] = useState(null);
     let [carshare , setCarshare] = useState(null);
     let [paymentProcessor , setpaymentProcessor] = useState(null);
+    const [errorPresent , setErrorPresent] = useState(false);
 
     // Initialising with a dummy object
     const [cars , setCars] = useState([
@@ -38,9 +39,8 @@ export default function CarDisplay() {
         }
     ]);
 
-    const [errorPresent , setErrorPresent] = useState(false);
-
     const connectWalletHandler = () => {
+        console.log("ijbfhbjfbhwbf" , carokenAddress , carshareAddress , paymentProcessorAddress);
         if(window.ethereum) {
             window.ethereum.request({method: 'eth_requestAccounts'})
             .then(res => {
@@ -127,16 +127,18 @@ export default function CarDisplay() {
     const approveTokens = async (carNo) => {
         setLoading(true);
         const res = await caroken.approveCarokens(cars[carNo].owner , 2 * cars[carNo].basePriceToRent);
+        const res1 = await caroken.approveCarokens(carshareAddress , 2 * cars[carNo].basePriceToRent);
+
         console.log(res , "Approval Done");
         setLoading(false);
     }
 
     const shareCar = async (carNo) => {
         setLoading(true);
-        // const res = await caroken.allowance(userAddress , cars[carNo].owner);
-        // console.log(res - 0);
-        // const res1 = await caroken.balanceOf(userAddress);
-        // console.log(res1 - 0);
+        const res = await caroken.allowance(userAddress , cars[carNo].owner);
+        console.log(res - 0);
+        const res1 = await caroken.balanceOf(userAddress);
+        console.log(res1 - 0);
         await carshare.shareCar(carNo);
         
         console.log("DONE SHARE");
@@ -197,15 +199,14 @@ export default function CarDisplay() {
         <div>
             <button onClick={getDetails}>Get Details</button>
             <p>Account: {account}</p>
-            <button onClick={connectWalletHandler}>Connect Metamask</button>
+            <Button onClick={connectWalletHandler}>Connect Metamask</Button>
             {loading ? <p>Loading</p> :
                 <div>
                     <CarAdd cars={cars} carshare={carshare} setCars={setCars} setLoading={setLoading}/>
                     <ul>
                     {getCars()}
                 </ul>
-                <TokenTransaction/>
-                <Car/>
+                <TokenTransaction caroken={caroken} carshare={carshare} paymentProcessor={paymentProcessor} setLoading={setLoading}/>
                 </div>
             }
         </div>
