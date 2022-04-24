@@ -100,28 +100,30 @@ export default function CarDisplay() {
         setLoading(true);
         await carshare.returnCar(carNo);
         
-        const currCars = [];
-        console.log(cars);
-        const totalCars = await carshare.getTotalCars();
+        carshare.on("CarReturned" , async (owner , rentee , id) => {
+            const currCars = [];
+            console.log(cars);
+            const totalCars = await carshare.getTotalCars();
 
-        for (let carIdx = 0 ; carIdx < totalCars ; carIdx++) {
-            const newCar = await carshare.getCarDetailsById(carIdx);
+            for (let carIdx = 0 ; carIdx < totalCars ; carIdx++) {
+                const newCar = await carshare.getCarDetailsById(carIdx);
 
-            const newCarDict = {
-                carNo: newCar[0],
-                name: newCar[2],
-                owner: newCar[1],
-                currentRentee: newCar[6],
-                basePriceToRent: newCar[3] - 0,
-                mileage: newCar[4] - 0,
-                isShared: newCar[5]
+                const newCarDict = {
+                    carNo: newCar[0],
+                    name: newCar[2],
+                    owner: newCar[1],
+                    currentRentee: newCar[6],
+                    basePriceToRent: newCar[3] - 0,
+                    mileage: newCar[4] - 0,
+                    isShared: newCar[5]
+                }
+                currCars.push(newCarDict);
             }
-            currCars.push(newCarDict);
-        }
 
-        setCars(currCars);
-        console.log(typeof(cars) , cars);
-        setLoading(false);
+            setCars(currCars);
+            console.log(typeof(cars) , cars);
+            setLoading(false);
+        });
     }
 
     const approveTokens = async (carNo) => {
@@ -135,35 +137,37 @@ export default function CarDisplay() {
 
     const shareCar = async (carNo) => {
         setLoading(true);
-        const res = await caroken.allowance(userAddress , cars[carNo].owner);
-        console.log(res - 0);
-        const res1 = await caroken.balanceOf(userAddress);
-        console.log(res1 - 0);
+        // const res = await caroken.allowance(userAddress , cars[carNo].owner);
+        // console.log(res - 0);
+        // const res1 = await caroken.balanceOf(userAddress);
+        // console.log(res1 - 0);
         await carshare.shareCar(carNo);
         
-        console.log("DONE SHARE");
-        const currCars = [];
-        console.log(cars);
-        const totalCars = await carshare.getTotalCars();
+        carshare.on("CarShared" , async (owner , rentee , id) => {
+            console.log("DONE SHARE");
+            const currCars = [];
+            console.log(cars);
+            const totalCars = await carshare.getTotalCars();
 
-        for (let carIdx = 0 ; carIdx < totalCars ; carIdx++) {
-            const newCar = await carshare.getCarDetailsById(carIdx);
+            for (let carIdx = 0 ; carIdx < totalCars ; carIdx++) {
+                const newCar = await carshare.getCarDetailsById(carIdx);
 
-            const newCarDict = {
-                carNo: newCar[0],
-                name: newCar[2],
-                owner: newCar[1],
-                currentRentee: newCar[6],
-                basePriceToRent: newCar[3] - 0,
-                mileage: newCar[4] - 0,
-                isShared: newCar[5]
+                const newCarDict = {
+                    carNo: newCar[0],
+                    name: newCar[2],
+                    owner: newCar[1],
+                    currentRentee: newCar[6],
+                    basePriceToRent: newCar[3] - 0,
+                    mileage: newCar[4] - 0,
+                    isShared: newCar[5]
+                }
+                currCars.push(newCarDict);
             }
-            currCars.push(newCarDict);
-        }
 
-        setCars(currCars);
-        console.log(typeof(cars) , cars);
-        setLoading(false);
+            setCars(currCars);
+            console.log(typeof(cars) , cars);
+            setLoading(false);
+        });
     }
 
     const getCars = () => {

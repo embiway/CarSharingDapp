@@ -14,7 +14,7 @@ def test_get_carokens(deployed_payment_processor):
     payer = accounts[1]
     owner = accounts[0]
 
-    caroken.approve(payement_processor.address , 10**18 , {'from': accounts[0]})
+    caroken.approveCarokens(payement_processor.address , 5 , {'from': accounts[0]})
 
     init_owner_eth = owner.balance()
     init_payer_eth = payer.balance()

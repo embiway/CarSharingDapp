@@ -5,27 +5,31 @@ export default function CarAdd(props) {
     const addCar = async (event) => {
         props.setLoading(true);
         event.preventDefault();
-        console.log(props.carshare , event.target.year_of_manufacture.value);
-        await props.carshare.addCar(event.target.carNo.value , event.target.name.value, event.target.year_of_manufacture.value , event.target.mileage.value , event.target.base_price.value);
-        const id = await props.carshare.getTotalCars() - 1;
-        console.log(id);
+        console.log("ADDING CARRRRRRRRRRRR");
+        const here = await props.carshare.addCar(event.target.carNo.value , event.target.name.value, event.target.year_of_manufacture.value , event.target.mileage.value , event.target.base_price.value);
         
-        const currCars = props.cars;
-        const newCar = await props.carshare.getCarDetailsById(id);
+        props.carshare.on("CarAdded" , async (adder , id) => {
+            console.log(here , "LOOK HERE : " , id);
+            
+            const currCars = props.cars;
+            const newCar = await props.carshare.getCarDetailsById(id);
 
-        const newCarDict = {
-            carNo: newCar[0],
-            name: newCar[2],
-            owner: newCar[1],
-            currentRentee: newCar[6],
-            basePriceToRent: newCar[3] - 0,
-            mileage: newCar[4] - 0,
-            isShared: newCar[5]
-        }
-        currCars.push(newCarDict);
-        props.setCars(currCars);
-        console.log(typeof(props.cars) , props.cars);
-        props.setLoading(false);
+            const newCarDict = {
+                carNo: newCar[0],
+                name: newCar[2],
+                owner: newCar[1],
+                currentRentee: newCar[6],
+                basePriceToRent: newCar[3] - 0,
+                mileage: newCar[4] - 0,
+                isShared: newCar[5]
+            }
+            currCars.push(newCarDict);
+            props.setCars(currCars);
+            console.log(typeof(props.cars) , props.cars);
+            props.setLoading(false);
+        });
+
+        console.log("Ended");
     }
 
     return (

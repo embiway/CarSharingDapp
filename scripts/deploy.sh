@@ -7,10 +7,10 @@ cat addresses
 
 echo -n 'REACT_APP_CAROKEN_ADDRESS=' > in
 awk '{if(NR==11) print $0}' addresses >> in
-echo -n 'REACT_APP_CARSHARE_ADDRESS=' >> in
-awk '{if(NR==21) print $0}' addresses >> in
 echo -n 'REACT_APP_PAYMENTPROCESSOR_ADDRESS=' >> in
-awk '{if(NR==27) print $0}' addresses >> in
+awk '{if(NR==25) print $0}' addresses >> in
+echo -n 'REACT_APP_CARSHARE_ADDRESS=' >> in
+awk '{if(NR==31) print $0}' addresses >> in
 
 cp in '../frontend/.env'
 
