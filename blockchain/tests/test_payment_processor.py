@@ -4,26 +4,27 @@ import pytest
 
 from brownie import Caroken, PaymentProcessor, accounts
 
-@pytest.fixture
-def deployed_payment_processor():
-    caroken = Caroken.deploy(10 , {'from': accounts[0]});
-    return [caroken , PaymentProcessor.deploy(caroken.address , {'from': accounts[0]})]
+def test_get_carokens():
+    acct = accounts[0]
+    # Currently working with ganache so its alright
+    caroken = Caroken.deploy(10 , {'from': acct})
+    payment_processor = PaymentProcessor.deploy(caroken.address , {'from': acct})
+    caroken.approveCarokens(payment_processor.address , 5 , {'from': acct});
+    caroken.mint(payment_processor.address , 5 , {'from': acct});
 
-def test_get_carokens(deployed_payment_processor):
-    caroken, payement_processor = deployed_payment_processor
     payer = accounts[1]
     owner = accounts[0]
 
-    caroken.approveCarokens(payement_processor.address , 5 , {'from': accounts[0]})
+    caroken.approveCarokens(payment_processor.address , 5 , {'from': accounts[0]})
 
     init_owner_eth = owner.balance()
     init_payer_eth = payer.balance()
     init_owner_carokens = caroken.balanceOf(owner)
     init_payer_carokens = caroken.balanceOf(payer)
 
-    payement_processor.getCarokens({'from': accounts[1] , 'value': "1 ether"})
+    payment_processor.getCarokens({'from': accounts[1] , 'value': "1 ether"})
 
-    sleep(10)
+    sleep(20)
     # curr = owner.balance()
     # assert curr - init_owner_eth == 10**18
     # curr = payer.balance()

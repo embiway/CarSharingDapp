@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import CarDisplay from './Components/CarDisplay';
 import reportWebVitals from './reportWebVitals';
+import AccountSetup from './Components/AccountSetup';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CarDisplay />
+    <AccountSetup />
   </React.StrictMode>,
   document.getElementById('root')
 );

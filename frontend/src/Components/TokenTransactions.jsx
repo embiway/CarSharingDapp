@@ -10,14 +10,16 @@ export default function TokenTransaction(props) {
 
         await props.paymentProcessor.getCarokens({value: ethers.utils.parseEther("1.0")});
         props.setLoading(false);
+        alert("Tokens Transferred");
     }
 
     return (
-        <form onSubmit={convertEthtoCRK}>
-            <label for='CRKS'>Enter the Amount of CRKS you want to buy</label>
-            <input type='number' name='CRKS' id='CRKS'/>
+        props.loading? <p>Loading</p> :
+            <form onSubmit={convertEthtoCRK}>
+                <label for='CRKS'>Enter the Amount of CRKS you want to buy</label>
+                <input type='number' name='CRKS' id='CRKS'/>
 
-            <input type='submit'/>
-        </form>
+                <input type='submit'/>
+            </form>
     );
 }

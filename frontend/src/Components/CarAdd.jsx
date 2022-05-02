@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 export default function CarAdd(props) {
 
+    const [loading , setLoading] = useState(false);
+
     const addCar = async (event) => {
-        props.setLoading(true);
+        setLoading(true);
         event.preventDefault();
         console.log("ADDING CARRRRRRRRRRRR");
         const here = await props.carshare.addCar(event.target.carNo.value , event.target.name.value, event.target.year_of_manufacture.value , event.target.mileage.value , event.target.base_price.value);
@@ -26,13 +28,16 @@ export default function CarAdd(props) {
             currCars.push(newCarDict);
             props.setCars(currCars);
             console.log(typeof(props.cars) , props.cars);
-            props.setLoading(false);
+            setLoading(false);
+
+            alert("Car Added");
         });
 
         console.log("Ended");
     }
 
     return (
+        loading? <p>Loading</p> : 
         <form onSubmit={addCar}>
             <label for='carNo'>CarNo : </label>
             <input id='carNo' type='text'/>
