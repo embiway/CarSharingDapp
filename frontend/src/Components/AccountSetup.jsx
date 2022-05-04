@@ -1,7 +1,9 @@
 import React, { Component, useEffect, useState } from 'react';  
 import CarAdd from './CarAdd'
 import CarDisplay from './CarDisplay';
-import { Card , Button } from 'react-bootstrap'
+import { Card , Button , Navbar , Container } from 'react-bootstrap'
+import '../styles/carStyle.css'
+import logo from './assets/logo.jpg'
 import TokenTransaction from './TokenTransactions';
 import { ethers } from 'ethers'
 import Caroken from '../contractABI/Caroken.json'
@@ -31,6 +33,8 @@ export default function AccountSetup() {
     let [carshare , setCarshare] = useState(null);
     let [paymentProcessor , setpaymentProcessor] = useState(null);
     const [errorPresent , setErrorPresent] = useState(false);
+
+    const [balance , setBalance] = useState(null);
 
     // Initialising with a dummy object
     const [cars , setCars] = useState([
@@ -119,19 +123,47 @@ export default function AccountSetup() {
         setDisplayCarAdd(false);
         setDisplayTokenTransaction(true);
     }
+
+    const showCarokenBalance = async () => {
+        setLoading(true);
+        const bal = await caroken.balanceOf(userAddress) - 0;
+        console.log(bal);
+        setBalance(bal);
+        setLoading(false);
+    }
     
 
     useEffect(() => console.log("Re rendered"));
     return (
         errorPresent ? <h4>Error occured</h4> : 
         <div>
-            <p>Account: {account}</p>
-            <Button onClick={connectWalletHandler}>Connect Metamask</Button>
-            {loading ? <p>Loading</p> :
+            <Navbar bg="dark" variant="dark">
+                <Container>
+                <Navbar.Brand href="#home">
+                    <img
+                    alt=""
+                    src={logo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                    />{' '}
+                CarShare
+                </Navbar.Brand>
+                </Container>
+            </Navbar>
+            <h4 className='acctDesc'>Account: {account}</h4>
+            <div id="connect">
+                <Button onClick={connectWalletHandler}>Connect Metamask</Button>
+                <h6 className='acctDesc'>Caroken Balance : {balance}</h6>
+            </div>
+            {loading ? "" :
                 <div>
-                    <Button onClick={goToCarAdd}>Add New Car</Button>
-                    <Button onClick={goToCarDisplay}>See all the cars</Button>
-                    <Button onClick={goToTokenTransaction}>Add tokens to wallet</Button>
+                    <div className='button_app'>
+                        <Button onClick={goToCarAdd}>Add New Car</Button>
+                        <Button onClick={goToCarDisplay}>See all the cars</Button>
+                        <Button onClick={goToTokenTransaction}>Add tokens to wallet</Button>
+                        <Button onClick={showCarokenBalance}>Show Balance</Button>
+                    </div>
                     {displayCarAdd ? <CarAdd cars={cars} carshare={carshare} setCars={setCars} loading={setLoading} setLoading={setLoading}/> : ""}
                     {displayCarDisplay ? <CarDisplay cars={cars} userAddress={userAddress} caroken={caroken} carshare={carshare} setCars={setCars} loading={loading} setLoading={setLoading}/> : ""}
                     {displayTokenTransaction ? <TokenTransaction caroken={caroken} carshare={carshare} loading={loading} paymentProcessor={paymentProcessor} setLoading={setLoading}/> : ""}

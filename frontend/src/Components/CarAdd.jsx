@@ -1,4 +1,6 @@
 import React, { Component, useState } from 'react';
+import '../styles/carStyle.css';
+import { Form , Button } from 'react-bootstrap';
 
 export default function CarAdd(props) {
 
@@ -37,24 +39,52 @@ export default function CarAdd(props) {
     }
 
     return (
-        loading? <p>Loading</p> : 
-        <form onSubmit={addCar}>
-            <label for='carNo'>CarNo : </label>
-            <input id='carNo' type='text'/>
+        loading? <p>Loading</p> :
+        <div className='form'> 
+            {/* <form onSubmit={addCar}>
+                <label for='carNo'>CarNo : </label>
+                <input id='carNo' type='text'/>
 
-            <label for='name'>name : </label>
-            <input id='name' type='text'/>
+                <label for='name'>name : </label>
+                <input id='name' type='text'/>
 
-            <label for='year_of_manufacture'>year_of_manufacture : </label>
-            <input id='year_of_manufacture' type='text'/>
+                <label for='year_of_manufacture'>year_of_manufacture : </label>
+                <input id='year_of_manufacture' type='text'/>
 
-            <label for='mileage'>mileage : </label>
-            <input id='mileage' type='number'/>
+                <label for='mileage'>mileage : </label>
+                <input id='mileage' type='number'/>
 
-            <label for='base_price'>basePrice : </label>
-            <input id='base_price' type='number'/>
+                <label for='base_price'>basePrice : </label>
+                <input id='base_price' type='number'/>
 
-            <button type='submit'>Add Car</button>
-        </form>
+                <button type='submit'>Add Car</button>
+            </form> */}
+            <Form onSubmit={addCar}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Car Number</Form.Label>
+                    <Form.Control type="text" placeholder="Enter the Car Number" id='carNo'/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter the Car Name" id='name'/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Year of Manufacture</Form.Label>
+                    <Form.Control type="text" placeholder="Enter the year of manufacture" id='year_of_manufacture'/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Mileage</Form.Label>
+                    <Form.Control type="text" placeholder="Enter the mileage" id='mileage'/>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Base Price</Form.Label>
+                    <Form.Control type="text" placeholder="Enter the base price" id='base_price'/>
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Add Car
+                </Button>
+            </Form>
+        </div>
     );
 }

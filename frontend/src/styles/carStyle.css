@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.acctDesc {
+    text-align: center;
+    padding: 2%;
+}
+
+#connect {
+    text-align: center;
+    padding: 1%;
+}
+
+.button_app {
+    margin: 5% 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form {
+    margin: 0% 10%;
+}
+
+.carDisp {
+    margin: 0% 20%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
